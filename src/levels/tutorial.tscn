@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://dh16gqs4jdwc0"]
+
+[ext_resource type="PackedScene" uid="uid://cbjqmhkx70snp" path="res://src/characters/player/bear.tscn" id="1_sojwi"]
+[ext_resource type="TileSet" uid="uid://cy62fc1sgtsn4" path="res://assets/tilesets/jungle.tres" id="2_w431r"]
+[ext_resource type="Shader" path="res://assets/effects/wobble_and_blur.gdshader" id="3_sd6br"]
+[ext_resource type="PackedScene" uid="uid://biad6xio0octx" path="res://src/characters/blob/blob.tscn" id="4_wm5oc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6gj43"]
+shader = ExtResource("3_sd6br")
+shader_parameter/wobble_speed = 0.0
+shader_parameter/wobble_strength = 0.0
+shader_parameter/wobble_frequency = 0.0
+shader_parameter/blur = 0.527
+
+[sub_resource type="Environment" id="Environment_duldh"]
+background_mode = 3
+ambient_light_source = 1
+ambient_light_color = Color(0.701961, 0.701961, 0.701961, 1)
+ambient_light_energy = 5.92
+adjustment_enabled = true
+adjustment_saturation = 1.94
+
+[node name="Tutorial" type="Node2D"]
+position = Vector2(22, -4)
+
+[node name="Bear" parent="." instance=ExtResource("1_sojwi")]
+position = Vector2(170, 550)
+scale = Vector2(0.1, 0.1)
+
+[node name="Camera2D" type="Camera2D" parent="Bear"]
+position = Vector2(170, -1590)
+scale = Vector2(10, 10)
+zoom = Vector2(1.2, 1.2)
+position_smoothing_enabled = true
+
+[node name="EffectsWobbleBlur" type="ColorRect" parent="Bear/Camera2D"]
+z_index = 1000
+material = SubResource("ShaderMaterial_6gj43")
+offset_left = -632.0
+offset_top = -394.0
+offset_right = 648.0
+offset_bottom = 336.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_duldh")
+
+[node name="Blob" parent="." instance=ExtResource("4_wm5oc")]
+position = Vector2(405, 543)
+scale = Vector2(0.3, 0.3)
+speed = 2500.0
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(30, 310)
+scale = Vector2(0.5, 0.5)
+tile_set = ExtResource("2_w431r")
+format = 2
+layer_0/name = "front"
+layer_0/tile_data = PackedInt32Array(262145, 0, 0, 327681, 0, 1, 262146, 65536, 0, 262147, 65536, 0, 262148, 131072, 0, 262149, 65536, 0, 262150, 196608, 0, 262151, 262144, 0, 262152, 327680, 0, 327688, 327680, 1, 327682, 65536, 1, 327683, 65536, 1, 327684, 65536, 1, 327685, 65536, 1, 327686, 65536, 1, 327687, 65536, 1, 262155, 0, 0, 262156, 65536, 0, 262157, 131072, 0, 262158, 196608, 0, 262159, 262144, 0, 262160, 327680, 0, 327691, 0, 1, 327696, 327680, 1, 327692, 65536, 1, 327693, 65536, 1, 327694, 65536, 1, 327695, 65536, 1, 196626, 0, 0, 262162, 0, 1, 196627, 65536, 0, 262163, 65536, 1, 196628, 131072, 0, 262164, 131072, 1, 196629, 196608, 0, 262165, 196608, 1, 196630, 262144, 0, 262166, 262144, 1, 196631, 327680, 0, 262167, 327680, 1, 131097, 0, 0, 196633, 0, 1, 131098, 65536, 0, 196634, 65536, 1, 131099, 131072, 0, 196635, 131072, 1, 131100, 196608, 0, 196636, 196608, 1, 131101, 262144, 0, 196637, 262144, 1, 131102, 327680, 0, 196638, 327680, 1, 458782, 0, 0, 524318, 0, 1, 458783, 65536, 0, 524319, 65536, 1, 458784, 131072, 0, 524320, 131072, 1, 458785, 196608, 0, 524321, 196608, 1, 458786, 262144, 0, 524322, 262144, 1, 458787, 327680, 0, 524323, 327680, 1, 720931, 0, 0, 786467, 0, 1, 720932, 65536, 0, 786468, 65536, 1, 720933, 131072, 0, 786469, 131072, 1, 720934, 196608, 0, 786470, 196608, 1, 720935, 262144, 0, 786471, 262144, 1, 720936, 327680, 0, 786472, 327680, 1)
+layer_1/name = "background"
+layer_1/enabled = true
+layer_1/modulate = Color(0.247059, 0.247059, 0.247059, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()

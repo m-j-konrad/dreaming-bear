@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://crnwiy37qn5dw"]
+
+[ext_resource type="Theme" uid="uid://bkjyt8ce2pukq" path="res://src/ui/theme_menu.tres" id="1_gldpc"]
+[ext_resource type="Script" path="res://src/ui/menu.gd" id="1_jw8vj"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jw8vj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.333333, 1)
+
+[node name="C" type="VBoxContainer" parent="."]
+texture_filter = 2
+layout_mode = 1
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 365.0
+offset_bottom = 497.0
+size_flags_horizontal = 2
+theme = ExtResource("1_gldpc")
+
+[node name="btnNewGame" type="Button" parent="C"]
+layout_mode = 2
+text = "new_game
+"
+
+[node name="HSeparator" type="HSeparator" parent="C"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="btnContinueGame" type="Button" parent="C"]
+layout_mode = 2
+text = "continue_game
+"
+
+[node name="HSeparator3" type="HSeparator" parent="C"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="btnOptions" type="Button" parent="C"]
+layout_mode = 2
+text = "options
+"
+
+[node name="HSeparator2" type="HSeparator" parent="C"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="btnStory" type="Button" parent="C"]
+layout_mode = 2
+text = "story
+"
+
+[node name="HSeparator4" type="HSeparator" parent="C"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="btnQuit" type="Button" parent="C"]
+layout_mode = 2
+text = "quit
+"

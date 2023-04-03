@@ -1,0 +1,7 @@
+# Godot 4+ specific ignores
+.godot/
+bin/
+screen_movie/
+*.translation
+export.cfg
+export_presets.cfg

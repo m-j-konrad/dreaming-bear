@@ -1,0 +1,128 @@
+[gd_scene load_steps=5 format=3 uid="uid://tv6a2jke7uwa"]
+
+[ext_resource type="Theme" uid="uid://bkjyt8ce2pukq" path="res://src/ui/theme_menu.tres" id="1_pnilh"]
+[ext_resource type="PackedScene" uid="uid://cbjqmhkx70snp" path="res://src/characters/player/bear.tscn" id="2_limtf"]
+
+[sub_resource type="Animation" id="Animation_b7hai"]
+resource_name = "intro"
+length = 14.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bear:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3, 5, 8, 9, 10, 12.1, 13.2, 14),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(46, -79.0001), Vector2(46, 720), Vector2(46, 720), Vector2(46, 720), Vector2(649, 720), Vector2(789, 432), Vector2(890, 723), Vector2(1112.6, 721.425), Vector2(1112.6, 720.6), Vector2(1314, 720)]
+}
+tracks/1/type = "animation"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Bear/AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": PackedStringArray("fall", "sit", "idle", "run", "jump", "run", "yes", "run"),
+"times": PackedFloat32Array(0, 2, 3, 5, 8, 10, 12.1, 13.2)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer/lbl3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6.2, 14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer/lbl1:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer/lbl2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 5, 7.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ouke"]
+_data = {
+"intro": SubResource("Animation_b7hai")
+}
+
+[node name="Control" type="Node2D"]
+texture_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -43.0
+offset_top = -49.0
+offset_right = 1327.0
+offset_bottom = 768.0
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = -3.0
+offset_top = 89.0
+offset_right = 1287.0
+offset_bottom = 529.0
+theme = ExtResource("1_pnilh")
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="lbl1" type="Label" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 0
+text = "der kleine Bär"
+horizontal_alignment = 1
+
+[node name="lbl2" type="Label" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 0
+text = "in"
+horizontal_alignment = 1
+
+[node name="lbl3" type="Label" parent="VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 200
+text = "Bärenträume"
+horizontal_alignment = 1
+
+[node name="Bear" parent="." instance=ExtResource("2_limtf")]
+position = Vector2(46, -79.0001)
+rotation = 0.00588226
+scale = Vector2(0.089, 0.089)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "intro"
+movie_quit_on_finish = true
+libraries = {
+"": SubResource("AnimationLibrary_7ouke")
+}

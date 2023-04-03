@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bkjyt8ce2pukq"]
+
+[ext_resource type="FontFile" uid="uid://jiaukbqlrkk" path="res://assets/fonts/Chewy.ttf" id="1_v6y4o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_10je0"]
+
+[resource]
+default_font = ExtResource("1_v6y4o")
+default_font_size = 52
+Label/colors/font_color = Color(0, 1, 0, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 0.866667)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 18
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/fonts/font = ExtResource("1_v6y4o")
+Label/styles/normal = SubResource("StyleBoxEmpty_10je0")
