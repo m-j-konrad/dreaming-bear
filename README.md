@@ -3,11 +3,10 @@
 **little platformer game with my bear** :-)  
 Copyright (c) 2023 Marcel J. Konrad
 
+In this repository I am just experimenting with new techniques – such as animating movements through moving limbs.
+For  the actual ready-to-play game take a look at [this](https://github.com/m-j-konrad/apfelbaer) repository.
+
 If you want to know the whole story of the little bear, you may [read his blog](https://www.xn--derkleinebr-u8a.de) (german)
-
-# Play it on the web or download
-
-I put HTML5 version for instant play [here](https://games.mjksoftware.de/dreamingbear).
 
 # 3rd-party libs, assets, code, tutorials
 
